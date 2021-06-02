@@ -1,3 +1,5 @@
+alert('Hello World');
+
 let myName = 'Bob';
 document.write(myName);
 myName = 'John Doe';
@@ -11,3 +13,6 @@ let size= 100;
 let doubleSize= size*2;
 let miniSize= (doubleSize *2) - (size / 2);
 document.write(miniSize)
+
+var favoriteFood = 'Fried Rice' ;
+document.write(favoriteFood);
