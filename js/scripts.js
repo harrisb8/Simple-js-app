@@ -73,7 +73,7 @@ let pokemonList = [
    Speed: 50,
    Weight: "30kg"},
    {name: "Meowth",
-   Height: 0.4m,
+   Height: 0.4,
    Type: "normal",
    Abilities: ["pickup", "technician", "unnerve"],
    Hp: 90,
