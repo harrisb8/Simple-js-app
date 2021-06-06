@@ -89,5 +89,5 @@ let pokemonList = [
    Attack: 110,
    Defense: 65,
    Speed: 30,
-   Weight: "460kg"
+   Weight: "460kg"},
 ];
