@@ -1,5 +1,5 @@
 //establishing my pokemonList and important attributes//
-let pokemonList = [
+let pokemon = [
    {
      name: "Venusaur",
    Height: 2,
@@ -112,6 +112,27 @@ let pokemonList = [
  },
 ];
 
+
+//had to simplify my pokemon list in order to make a loop//
+let pokemonList= [
+ {name: "Venusaur", height: 2},
+ {name: "Charizard", height: 1.7},
+ {name: "Blastoise", height: 1.6},
+ {name: "Pikachu", height: 0.4},
+ {name: "Jiggypuff", height: 0.5},
+ {name: "Machamp", height: 1.6},
+ {name: "Mewtwo", height: 2},
+ {name: "Muk", height: 1.2},
+ {name: "Snorlax", height: 2.1}
+ ];
+
+
 /*creating a loop with names and heights*/
- for ( let i = 0; i < pokemonList.length; i++)
+//nest array within an array//
+ for ( let i = 0; i < pokemonList.length; i++){
   document.write(pokemonList[i].name + " (" + "height " + pokemonList[i].height + ") ");
+  //set conditions to acknowledge pokemon taller than 2//
+  if(pokemonList[i].height === 2.1) {
+ document.write('Wow, That\'s Big!');
+}
+ }
