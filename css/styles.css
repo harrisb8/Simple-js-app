@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+  background-color: blue;
+  padding: 50px;
+  border-style: double;
+  border-color: black;
+  color: yellow;
+  border-width: thick;
+}
+
+body {
+  background: rgb(34,193,195);
+  background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,244,45,1) 100%);
+}
+
+h3 {
+  text-align: center;
+  color: yellow;
+}
