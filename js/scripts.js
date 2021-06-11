@@ -129,10 +129,14 @@ let pokemonList= [
 
 /*creating a loop with names and heights*/
 //nest array within an array//
- for ( let i = 0; i < pokemonList.length; i++){
-  document.write(pokemonList[i].name + " (" + "height " + pokemonList[i].height + ") ");
+ let pokemonList= pokemonRepository.getAll();
+ pokemonList.forEach (function(pokemon) {
+   document.write(pokemon.name + "" + pokemon.type + "" + "(" + "height" + pokemon.height +")<br />");
+ });
   //set conditions to acknowledge pokemon taller than 2//
   if(pokemonList[i].height === 2.1) {
  document.write('Wow, That\'s Big!');
 }
  }
+ for ( let i = 0; i < pokemonList.length; i++){
+  document.write(pokemonList[i].name + " (" + "height " + pokemonList[i].height + ") ");
