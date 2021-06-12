@@ -11,9 +11,12 @@ h1 {
 body {
   background: rgb(34,193,195);
   background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,244,45,1) 100%);
+  text-align: center;
 }
 
 h3 {
   text-align: center;
-  color: yellow;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: black;
 }
