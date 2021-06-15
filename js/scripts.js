@@ -137,3 +137,7 @@ for ( let i = 0; i < pokemonList.length; i++){
    document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") <br />");
  }
   }
+let pokemonInfo = pokemonRepository.getAll();
+pokemonInfo.forEach (function(pokemon) {
+  document.write(pokemon.name + "" + pokemon.type + "" + " (" + "height" + pokemon.height + ")"<br />);
+});
