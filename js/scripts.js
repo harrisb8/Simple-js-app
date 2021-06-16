@@ -156,3 +156,4 @@ for ( let i = 0; i < pokemonList.length; i++){
       getAll: getAll
     };
     });
+    //this is practice trying to merge vs with github desktop and github///
