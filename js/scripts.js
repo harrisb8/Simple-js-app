@@ -114,44 +114,33 @@ let pokemonList = [
  },
 ];
 
-
-//had to simplify my pokemon list in order to make a loop//
-//let pokemonList= [
- {name: "Venusaur", height: 2},
- {name: "Charizard", height: 1.7},
- {name: "Blastoise", height: 1.6},
- {name: "Pikachu", height: 0.4},
- {name: "Jiggypuff", height: 0.5},
- {name: "Machamp", height: 1.6},
- {name: "Mewtwo", height: 2},
- {name: "Muk", height: 1.2},
- {name: "Snorlax", height: 2.1}
- ];
-
-
 /*creating a loop with names and heights*/
 //nest array within an array//
-//for ( let i = 0; i < pokemonList.length; i++){
+for ( let i = 0; i < pokemonList.length; i++){
 //set conditions to acknowledge pokemon taller than 2//
- //if(pokemonList[i].height >= 2.1) {
-  // document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") " + "- Wow thats big! <br />");
- //}else{
-  // document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") <br />");
+ if(pokemonList[i].height >= 2.1) {
+   document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") " + "- Wow thats big! <br />");
+ }else{
+   document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") <br />");
  }
   }
   
 //Declaring the add function
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (typeof pokemon === 'object'){
+    return pokemonList.push(pokemon);
+  }else{
+   document.write("Charmander");
+  }
   }
   //declaring the getAll function
   function getAll(){
-    return pokemonList
+    return pokemonList;
   }
  // Setting up the key and the value of the return 
   return {
     add: add,
-    getAll: getAll }
+    getAll: getAll 
   };
   })();
 
@@ -161,7 +150,7 @@ pokemonRepository.add({name: 'Charmander'});
 document.write(pokemonRepository.getAll());
 
 //assinging pokemonInfo the value of pokemonRepository
-let pokemonInfo = pokemonRepository.getAll();
+let pokemonInfo= pokemonRepository.getAll();
 
 //Trying to display the array
 pokemonInfo.forEach(function(pokemon){
