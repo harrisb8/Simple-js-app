@@ -114,17 +114,6 @@ let pokemonList = [
  },
 ];
 
-/*creating a loop with names and heights*/
-//nest array within an array//
-for ( let i = 0; i < pokemonList.length; i++){
-//set conditions to acknowledge pokemon taller than 2//
- if(pokemonList[i].height >= 2.1) {
-   document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") " + "- Wow thats big! <br />");
- }else{
-   document.write(pokemonList[i].name + "(" + "height" + pokemonList[i].height + ") <br />");
- }
-  }
-  
 //Declaring the add function
   function add(pokemon) {
     if (typeof pokemon === 'object'){
@@ -145,7 +134,7 @@ for ( let i = 0; i < pokemonList.length; i++){
   })();
 
   //Trying get the array to display in browser
-  document.write(pokemonRepository.getAll());
+  console.log(pokemonRepository.getAll());
 pokemonRepository.add({name: 'Charmander'});
 document.write(pokemonRepository.getAll());
 
