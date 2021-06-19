@@ -1,6 +1,6 @@
 //establishing my pokemonList and important attributes//
 //wrap in iife//
-let pokemonRepository =(function(){
+
 let pokemonList = [
    {
      name: "Venusaur",
@@ -54,6 +54,8 @@ let pokemonList = [
  },
 ];
 
+let pokemonRepository =(function(){
+
 //Declaring the add function
   function add(pokemon) {
     if (typeof pokemon === 'object'){
@@ -83,5 +85,5 @@ let pokemonInfo= pokemonRepository.getAll();
 
 //Trying to display the array
 pokemonInfo.forEach(function(pokemon){
-  document.write(pokemon.name + "" + pokemon.type + "" + "("+ "height" + ")<br />");
+  document.write(pokemon.name + " " + pokemon.type + "" + "("+ "height" + pokemon.height +")<br />");
 });
