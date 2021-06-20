@@ -4,53 +4,53 @@
 let pokemonList = [
    {
      name: "Venusaur",
-   Height: 2,
-   Type: ["grass", "poison"]
+   height: 2,
+   type: ["grass", "poison"]
  },
    {
      name: "Charizard",
-   Height: 1.7,
-   Type: ["fire", "flying"]
+   height: 1.7,
+   type: ["fire", "flying"]
  },
    {
      name: "Blastoise",
-   Height: 1.6,
-   Type: "water"
+   height: 1.6,
+   type: "water"
  },
    {
      name: "Pikachu",
-   Height: 0.4,
-   Type: "electric"
+   height: 0.4,
+   type: "electric"
  },
    {
      name: "Jigglypuff",
-   Height: 0.5,
-   Type: ["fairy", "normal"]
+   height: 0.5,
+   type: ["fairy", "normal"]
  },
    {
      name: "Machamp",
-   Height: 1.6,
-   Type: "fighting"
+   height: 1.6,
+   type: "fighting"
  },
    {
      name: "Mewtwo",
-   Height: 2,
-   Type: "psychic"
+   height: 2,
+   type: "psychic"
  },
    {
      name: "Muk",
-   Height: 1.2,
-   Type: "poison"
+   height: 1.2,
+   type: "poison"
  },
    {
      name: "Meowth",
-   Height: 0.4,
-   Type: "normal"
+   height: 0.4,
+   type: "normal"
  },
    {
      name: "Snorlax",
-   Height: 2.1,
-   Type: "normal"
+   height: 2.1,
+   type: "normal"
  },
 ];
 
@@ -85,5 +85,5 @@ let pokemonInfo= pokemonRepository.getAll();
 
 //Trying to display the array
 pokemonInfo.forEach(function(pokemon){
-  document.write(pokemon.name + " " + pokemon.type + "" + "("+ "height" + pokemon.height +")<br />");
+  document.write(pokemon.name + ", " + pokemon.type + " ("+ "height" + pokemon.height +")<br />");
 });
