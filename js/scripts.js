@@ -78,7 +78,7 @@ let pokemonRepository =(function(){
   //Trying get the array to display in browser
   console.log(pokemonRepository.getAll());
 pokemonRepository.add({name: 'Charmander'});
-document.write(pokemonRepository.getAll());
+//document.write(pokemonRepository.getAll());
 
 //assinging pokemonInfo the value of pokemonRepository
 let pokemonInfo= pokemonRepository.getAll();
