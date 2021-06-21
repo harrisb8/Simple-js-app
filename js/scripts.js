@@ -56,18 +56,7 @@ let pokemonList = [
 
 let pokemonRepository =(function(){
 
-  function addListItem(pokemon) {
-    let list = document.querySelector(".pokemon-list");
-  let listItem = document.createElement("li");
-  let button = document.createElement("button");
-  button.innertext = pokemon.name;
-  button.classList.add("button-class");
-  button.appendChild(li);
-  listItem.appendChild(button);
-  list.appendChild(listItem);
-  }
-
-//Declaring the add function
+  //Declaring the add function
   function add(pokemon) {
     if (typeof pokemon === 'object'){
     return pokemonList.push(pokemon);
@@ -79,11 +68,23 @@ let pokemonRepository =(function(){
   function getAll(){
     return pokemonList;
   }
+//added new function with buttons
+  function addListItem(pokemon) {
+    let list = document.querySelector(".pokemon-list");
+  let listItem = document.createElement("li");
+  let button = document.createElement("button");
+  button.innertext = pokemon.name;
+  button.classList.add("button-class");
+  button.appendChild(li);
+  listItem.appendChild(button);
+  list.appendChild(listItem);
+  }
+
  // Setting up the key and the value of the return 
   return {
     add: add,
     getAll: getAll 
-    addListItem(): addListItem()
+    addListItem: addListItem
   };
   })();
 
@@ -95,12 +96,10 @@ pokemonRepository.add({name: 'Charmander'});
 //assinging pokemonInfo the value of pokemonRepository
 let pokemonInfo= pokemonRepository.getAll();
 
-
-
 //DOM manipulation practice
-//pokemonInfo.forEach(function(pokemon){
+pokemonInfo.forEach(function(pokemon){
  
-  
-  //document.write(pokemon.name + ", " + pokemon.type + " ("+ "height" + pokemon.height +")<br />");
+  //calling function
+  pokemonInfo.addListItem(pokemon);
 });
 
