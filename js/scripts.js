@@ -85,7 +85,7 @@ let pokemonInfo= pokemonRepository.getAll();
 
 //Trying to display the array
 pokemonInfo.forEach(function(pokemon){
-  let pokemon-list = document.querySelector('ul');
+  let list = document.querySelector('ul');
   let listItem = document.createElement('li');
   let button = document.createElement('button');
   button.innertext = pokemon.name;
