@@ -83,7 +83,7 @@ pokemonRepository.add({name: 'Charmander'});
 //assinging pokemonInfo the value of pokemonRepository
 let pokemonInfo= pokemonRepository.getAll();
 
-//Trying to display the array
+//DOM manipulation practice
 pokemonInfo.forEach(function(pokemon){
   let list = document.querySelector('ul');
   let listItem = document.createElement('li');
