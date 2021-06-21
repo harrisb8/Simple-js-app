@@ -85,5 +85,14 @@ let pokemonInfo= pokemonRepository.getAll();
 
 //Trying to display the array
 pokemonInfo.forEach(function(pokemon){
-  document.write(pokemon.name + ", " + pokemon.type + " ("+ "height" + pokemon.height +")<br />");
+  let pokemon-list = document.querySelector('ul');
+  let listItem = document.createElement('li');
+  let button = document.createElement('button');
+  button.innertext = pokemon.name;
+  button.classList.add('button');
+  button.appendChild(li);
+  listItem.appendChild(ul);
+  
+  //document.write(pokemon.name + ", " + pokemon.type + " ("+ "height" + pokemon.height +")<br />");
 });
+
