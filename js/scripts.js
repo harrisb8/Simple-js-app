@@ -60,7 +60,7 @@ let pokemonRepository =(function(){
     let list = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
   let button = document.createElement("button");
-  button.innertext = pokemon.name;
+  button.innertext = pokemonlist.name;
   button.classList.add("button-class");
   button.appendChild(li);
   listItem.appendChild(button);
@@ -98,7 +98,7 @@ let pokemonInfo= pokemonRepository.getAll();
 
 
 //DOM manipulation practice
-pokemonInfo.forEach(function(pokemon){
+//pokemonInfo.forEach(function(pokemon){
  
   
   //document.write(pokemon.name + ", " + pokemon.type + " ("+ "height" + pokemon.height +")<br />");
