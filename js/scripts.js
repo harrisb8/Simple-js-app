@@ -60,7 +60,7 @@ let pokemonRepository =(function(){
     let list = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
   let button = document.createElement("button");
-  button.innertext = pokemonlist.name;
+  button.innertext = pokemon.name;
   button.classList.add("button-class");
   button.appendChild(li);
   listItem.appendChild(button);
