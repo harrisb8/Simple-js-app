@@ -71,20 +71,20 @@ let pokemonRepository =(function(){
 //added new function with buttons
   function addListItem(pokemon) {
     let list = document.querySelector(".pokemon-list");
-  let listItem = document.createElement("li");
-  let button = document.createElement("button");
-  button.innertext = pokemon.name;
-  button.classList.add("button");
-  button.appendChild(li);
-  listItem.appendChild(button);
-  list.appendChild(listItem);
+    let listItem = document.createElement("li");
+    let button = document.createElement("button");
+    button.innertext = pokemon.name;
+    button.classList.add("button");
+    button.appendChild(li);
+    listItem.appendChild(button);
+    list.appendChild(listItem);
   }
 
  // Setting up the key and the value of the return 
   return {
     add: add,
     getAll: getAll 
-    addListItem: addListItem
+    addListItem: addListItem,
   };
   })();
 
