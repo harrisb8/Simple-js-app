@@ -89,7 +89,7 @@ let pokemonRepository =(function(){
     getAll: getAll, 
     addListItem : addListItem
   };
-  })();
+  
 
   //Trying get the array to display in browser
   console.log(pokemonRepository.getAll());
