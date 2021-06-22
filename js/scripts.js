@@ -2,107 +2,105 @@
 //wrap in iife//
 
 let pokemonList = [
-   {
-     name: "Venusaur",
-   height: 2,
-   type: ["grass", "poison"]
- },
-   {
-     name: "Charizard",
-   height: 1.7,
-   type: ["fire", "flying"]
- },
-   {
-     name: "Blastoise",
-   height: 1.6,
-   type: "water"
- },
-   {
-     name: "Pikachu",
-   height: 0.4,
-   type: "electric"
- },
-   {
-     name: "Jigglypuff",
-   height: 0.5,
-   type: ["fairy", "normal"]
- },
-   {
-     name: "Machamp",
-   height: 1.6,
-   type: "fighting"
- },
-   {
-     name: "Mewtwo",
-   height: 2,
-   type: "psychic"
- },
-   {
-     name: "Muk",
-   height: 1.2,
-   type: "poison"
- },
-   {
-     name: "Meowth",
-   height: 0.4,
-   type: "normal"
- },
-   {
-     name: "Snorlax",
-   height: 2.1,
-   type: "normal"
- },
+  {
+    name: "Venusaur",
+  height: 2,
+  type: ["grass", "poison"]
+},
+  {
+    name: "Charizard",
+  height: 1.7,
+  type: ["fire", "flying"]
+},
+  {
+    name: "Blastoise",
+  height: 1.6,
+  type: "water"
+},
+  {
+    name: "Pikachu",
+  height: 0.4,
+  type: "electric"
+},
+  {
+    name: "Jigglypuff",
+  height: 0.5,
+  type: ["fairy", "normal"]
+},
+  {
+    name: "Machamp",
+  height: 1.6,
+  type: "fighting"
+},
+  {
+    name: "Mewtwo",
+  height: 2,
+  type: "psychic"
+},
+  {
+    name: "Muk",
+  height: 1.2,
+  type: "poison"
+},
+  {
+    name: "Meowth",
+  height: 0.4,
+  type: "normal"
+},
+  {
+    name: "Snorlax",
+  height: 2.1,
+  type: "normal"
+},
 ];
 
 let pokemonRepository =(function(){
 
-  //Declaring the add function
-  function add(pokemon) {
-    if (typeof pokemon === 'object'){
-    return pokemonList.push(pokemon);
-  }else{
-   document.write("Charmander");
-  }
-  }
-  //declaring the getAll function
-  function getAll(){
-    return pokemonList;
-  }
-//added new function with buttons
-  function addListItem(){
-    document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-    let button = document.createElement("button");
-    button.classList.add("pokebutton");
-    button.addEventListener("click", function(event){
-      showDetails(pokemon);
-    });
-    listItem.appendChild(button);
-    document.querySelector("ul").appendChild(listItem);
-  }
-  })();
+//Declaring the add function
+ function add(pokemon) {
+   if (typeof pokemon === 'object'){
+   return pokemonList.push(pokemon);
+ }else{
+  document.write("Charmander");
+ }
+ }
+ //declaring the getAll function
+ function getAll(){
+   return pokemonList;
+ }  
+ 
+ function addListItem(pokemon) {
+  let list = document.querySelector(".pokemon-list");
+  let listPokemon = document.createElement("li");
+  let button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add('pokebutton');
+  //Adding and eventListener to my button//
+  button.addEventListener("click", function(event){
+   showDetails(pokemon);
+  });
+  listPokemon.appendChild(button);
+  list.appendChild(listPokemon);
+ }
 
+// Setting up the key and the value of the return 
+ return {
+   add: add,
+   getAll: getAll,
+   addListItem: addListItem
+ };
+ })();
 
- // Setting up the key and the value of the return 
-  return {
-    add: add,
-    getAll: getAll, 
-    addListItem : addListItem
-  };
-  
-
-  //Trying get the array to display in browser
-  console.log(pokemonRepository.getAll());
+ //Trying get the array to display in browser
+ console.log(pokemonRepository.getAll());
 pokemonRepository.add({name: 'Charmander'});
 //document.write(pokemonRepository.getAll());
 
 //assinging pokemonInfo the value of pokemonRepository
 let pokemonInfo= pokemonRepository.getAll();
 
-//DOM manipulation practice
+//Trying to display the array
 pokemonInfo.forEach(function(pokemon){
- 
-  //calling function
-  pokemonInfo.addListItem(pokemon);
-});
 
+pokemonRepository.addListItem(pokemon);
+});
