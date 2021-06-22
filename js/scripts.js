@@ -83,8 +83,8 @@ let pokemonRepository =(function(){
  // Setting up the key and the value of the return 
   return {
     add: add,
-    getAll: getAll 
-    addListItem: addListItem,
+    getAll: getAll, 
+    addListItem : addListItem
   };
   })();
 
