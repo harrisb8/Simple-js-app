@@ -75,9 +75,9 @@ let pokemonRepository =(function(){
   let button = document.createElement("button");
   button.innerText = pokemon.name;
   button.classList.add('pokebutton');
-  //Adding and eventListener to my button//
-  button.addEventListener("click", function(event){
-   showDetails(pokemon);
+  //Adding and eventListener to my button, Once user click on button details of pokemon will display//
+  button.addEventListener("click", function showDetails(){
+     console.log(pokemon)
   });
   listPokemon.appendChild(button);
   list.appendChild(listPokemon);
