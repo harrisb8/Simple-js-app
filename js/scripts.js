@@ -55,6 +55,8 @@ let pokemonList = [
 ];
 
 let pokemonRepository =(function(){
+//add url for data to be pull from
+let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 //Declaring the add function
  function add(pokemon) {
@@ -83,11 +85,29 @@ let pokemonRepository =(function(){
   list.appendChild(listPokemon);
  }
 
+ //add fetch to load list from url
+ function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
+
 // Setting up the key and the value of the return 
  return {
    add: add,
    getAll: getAll,
-   addListItem: addListItem
+   addListItem: addListItem,
+   loadList: loadList
  };
  })();
 
@@ -99,8 +119,12 @@ pokemonRepository.add({name: 'Charmander'});
 //assinging pokemonInfo the value of pokemonRepository
 let pokemonInfo= pokemonRepository.getAll();
 
+pokemonRepository.loadList().then(function() {
+  // Now the data is loaded!
+
 //Trying to display the array
 pokemonInfo.forEach(function(pokemon){
 
-pokemonRepository.addListItem(pokemon);
+  pokemonRepository.addListItem(pokemon);
+});
 });
