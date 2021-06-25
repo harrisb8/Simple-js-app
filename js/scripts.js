@@ -1,62 +1,11 @@
 //establishing my pokemonList and important attributes//
 //wrap in iife//
 
-let pokemonList = [
-  {
-    name: "Venusaur",
-  height: 2,
-  type: ["grass", "poison"]
-},
-  {
-    name: "Charizard",
-  height: 1.7,
-  type: ["fire", "flying"]
-},
-  {
-    name: "Blastoise",
-  height: 1.6,
-  type: "water"
-},
-  {
-    name: "Pikachu",
-  height: 0.4,
-  type: "electric"
-},
-  {
-    name: "Jigglypuff",
-  height: 0.5,
-  type: ["fairy", "normal"]
-},
-  {
-    name: "Machamp",
-  height: 1.6,
-  type: "fighting"
-},
-  {
-    name: "Mewtwo",
-  height: 2,
-  type: "psychic"
-},
-  {
-    name: "Muk",
-  height: 1.2,
-  type: "poison"
-},
-  {
-    name: "Meowth",
-  height: 0.4,
-  type: "normal"
-},
-  {
-    name: "Snorlax",
-  height: 2.1,
-  type: "normal"
-},
-];
+let pokemonList = [];
 
-let pokemonRepository =(function(){
 //add url for data to be pull from
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+let pokemonRepository =(function(){
 
 //Declaring the add function
  function add(pokemon) {
@@ -86,20 +35,40 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
  }
 
  //add fetch to load list from url
- function loadList() {
-  return fetch(apiUrl).then(function (response) {
-    return response.json();
-  }).then(function (json) {
-    json.results.forEach(function (item) {
-      let pokemon = {
-        name: item.name,
-        detailsUrl: item.url
-      };
-      add(pokemon);
-    });
-  }).catch(function (e) {
+ async function loadList() {
+  try {
+     const response = await fetch(apiUrl);
+     const json = await response.json();
+     json.results.forEach(function (item) {
+       let pokemon = {
+         name: item.name,
+         detailsUrl: item.url
+       };
+       add(pokemon);
+     });
+   } catch (e) {
+     console.error(e);
+   }
+}
+//add details fetched from api
+  async function loadDetails(item) {
+  let url = item.detailsUrl;
+  try {
+    const response = await fetch(url);
+    const details = await response.json();
+    // Now we add the details to the item
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  } catch (e) {
     console.error(e);
-  })
+  }
+}
+
+function showDetails(pokemon) {
+  loadDetails(pokemon).then(function () {
+    console.log(pokemon);
+  });
 }
 
 // Setting up the key and the value of the return 
@@ -107,7 +76,9 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
    add: add,
    getAll: getAll,
    addListItem: addListItem,
-   loadList: loadList
+   loadList: loadList,
+   loadDetails: loadDetails,
+   showDetails: showDetails
  };
  })();
 
