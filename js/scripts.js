@@ -7,6 +7,9 @@ let pokemonList = [];
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 let pokemonRepository =(function(){
 
+//repeating function that will be defined once
+let modalContainer = document.querySelector('modal-container');
+
 //Declaring the add function
  function add(pokemon) {
    if (typeof pokemon === 'object'){
@@ -65,11 +68,62 @@ let pokemonRepository =(function(){
   }
 }
 
-function showDetails(pokemon) {
+function showDetails(title, text) {
   loadDetails(pokemon).then(function () {
     console.log(pokemon);
+    //adding modal container//
+    function showModal(pokemon) {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.innerHTML = '';
+    let modal = document.createElement('div');
+    modal.classList.add('modal');
+     
+    //add a close button, create a close class, and name the close element//
+    let closeButtonElement = document.createElement('button');
+    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
+
+    //create title of Modal
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = title;
+
+    //create paragraph of Modal
+    let contentElement = document.createElement('p');
+    contentElement.innerText = text;
+
+    //attach new elements  new element to the modal 
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+    }
   });
 }
+
+function hideModal() {
+  modal-modalContainer.classList.remove('is-visible');
+}
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+   hideModal();
+  }
+});
+
+modalContainer.addEventListener('click', (e) => {
+  let target = e.target;
+  if (target === modalContainer){
+     hideModal();
+  }
+});
+
+
+document.querySelector('#show-modal').addEventListener('click', () => {
+   showModal(pokemon.name, pokemon.height);
+});
 
 // Setting up the key and the value of the return 
  return {
