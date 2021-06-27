@@ -111,9 +111,9 @@ modalContainer.addEventListener('click', (e) => {
   if(target === modalContainer){
     hideModal()
   }
-}
+});
 
-document.querySelector('show-modal').addEventListener('click', () => {
+document.querySelector('#show-modal').addEventListener('click', ()=> {
   showModal(pokemonInfo.name, pokemonInfo.height);
 });
 
@@ -144,4 +144,4 @@ pokemonInfo.forEach(function(pokemon){
 
   pokemonRepository.addListItem(pokemon);
 });
-}),
+});
