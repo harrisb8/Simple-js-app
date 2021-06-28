@@ -65,7 +65,7 @@ let pokemonRepository =(function() {
   }
 }
 
-function showDetails(pokemonList) {
+function showDetails(pokemonInfo) {
   loadDetails(pokemon).then(function () {
     //console.log(pokemon);
     //adding Modal to the pokemon list that we already have//
