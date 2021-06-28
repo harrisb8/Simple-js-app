@@ -5,8 +5,7 @@ let pokemonList = [];
 
 //add url for data to be pull from
 let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-let pokemonRepository =(function(){
-
+let pokemonRepository =(function() {
 
 //Declaring the add function
  function add(pokemon) {
@@ -66,7 +65,7 @@ let pokemonRepository =(function(){
   }
 }
 
-function showDetails(title, text) {
+function showDetails(pokemonList) {
   loadDetails(pokemon).then(function () {
     //console.log(pokemon);
     //adding Modal to the pokemon list that we already have//
@@ -106,6 +105,7 @@ function showDetails(title, text) {
     }
   });
 
+
 modalContainer.addEventListener('click', (e) => {
   let target = e.target;
   if(target === modalContainer){
@@ -125,8 +125,10 @@ document.querySelector('#show-modal').addEventListener('click', ()=> {
    loadList: loadList,
    loadDetails: loadDetails,
    showDetails: showDetails
- };
+  };
  })();
+}
+
 
  //Trying get the array to display in browser
  console.log(pokemonRepository.getAll());
@@ -143,5 +145,6 @@ pokemonRepository.loadList().then(function() {
 pokemonInfo.forEach(function(pokemon){
 
   pokemonRepository.addListItem(pokemon);
+});
 });
 });
