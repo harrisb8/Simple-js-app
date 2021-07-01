@@ -87,7 +87,7 @@ function showDetails(pokemon) {
   modal.appendChild(image);
 
   //attaching modal info to pokemonInfo
-  let titleElement = docment.createElement('h1');
+  let titleElement = document.createElement('h1');
   titleElement.innerText = pokemon.name;
 
   let contentElement = document.createElement('p');
