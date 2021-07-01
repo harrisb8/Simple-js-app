@@ -1,23 +1,26 @@
 //establishing my pokemonList and important attributes//
 //wrap in iife//
 
-let pokemonList = [];
 
-//add url for data to be pull from
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+
+
 let pokemonRepository =(function() {
+  let pokemonList = [];
+  //add url for data to be pull from
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let modalContainer = document.querySelector('#modal-container');
 
-//Declaring the add function
- function add(pokemon) {
-   if (typeof pokemon === 'object'){
-   return pokemonList.push(pokemon);
- }else{
-  document.write("Charmander");
- }
- }
+  //Declaring the add function
+  function add(pokemon) {
+    if (typeof pokemon === 'object'){
+      return pokemonList.push(pokemon);
+    } else {
+  //document.write("Charmander");
+    }
+  }
  //declaring the getAll function
- function getAll(){
-   return pokemonList;
+  function getAll(){
+     return pokemonList;
  }  
  
  function addListItem(pokemon) {
@@ -27,8 +30,9 @@ let pokemonRepository =(function() {
   button.innerText = pokemon.name;
   button.classList.add('pokebutton');
   //Adding and eventListener to my button, Once user click on button details of pokemon will display//
-  button.addEventListener("click", function showDetails(){
+  button.addEventListener("click", function(){
      console.log(pokemon)
+     showDetails(pokemon);
   });
   listPokemon.appendChild(button);
   list.appendChild(listPokemon);
@@ -52,27 +56,25 @@ let pokemonRepository =(function() {
 }
 //add details fetched from api
   async function loadDetails(item) {
-  let url = item.detailsUrl;
-  try {
-    const response = await fetch(url);
-    const details = await response.json();
-    // Now we add the details to the item
-    item.imageUrl = details.sprites.front_default;
-    item.height = details.height;
-    item.types = details.types;
-  } catch (e) {
-    console.error(e);
-  }
+    let url = item.detailsUrl;
+      return fetch(url)
+        .then(response => response.json())
+        .then(details =>{
+           // Now we add the details to the item
+          item.imageUrl = details.sprites.front_default;
+          item.height = details.height;
+          item.types = details.types;
+        })
 }
 
-function showDetails(pokemonInfo) {
-  loadDetails(pokemon).then(function () {
-    //console.log(pokemon);
+function showDetails(pokemon) {
+  loadDetails(pokemon)
+  .then(function () {
+    console.log(pokemon);
     //adding Modal to the pokemon list that we already have//
-  let modalContainer = document.querySelector('#modal-container');
-  modalContainer.innerHTML ='';
-  let modal = document. createElement('div');
-  modal.classList.add('modal');
+    modalContainer.innerHTML ='';
+    let modal = document. createElement('div');
+    modal.classList.add('modal');
   
   //creating a close button for the modal
   let closeButtonElement = document.createElement('button');
@@ -80,12 +82,16 @@ function showDetails(pokemonInfo) {
   closeButtonElement.innerText= 'Close';
   closeButtonElement.addEventListener('click', hideModal);
 
+  let image = document.createElement('img');
+  image.src = pokemon.imageUrl;
+  modal.appendChild(image);
+
   //attaching modal info to pokemonInfo
   let titleElement = docment.createElement('h1');
-  titleElement.innerText = pokemonInfo.name;
+  titleElement.innerText = pokemon.name;
 
   let contentElement = document.createElement('p');
-  contentElement.innerText = pokemonInfo.height;
+  contentElement.innerText = pokemon.height;
 
   //attaching created elements to modal and adding modal to pokemon list
   modal.appendChild(closeButtonElement);
@@ -94,6 +100,8 @@ function showDetails(pokemonInfo) {
   modalContainer.appendChild(modal);
 
   modalContainer.classList.add('is-visible');
+  })
+}
 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
@@ -127,24 +135,22 @@ document.querySelector('#show-modal').addEventListener('click', ()=> {
    showDetails: showDetails
   };
  })();
-}
+
 
 
  //Trying get the array to display in browser
- console.log(pokemonRepository.getAll());
-pokemonRepository.add({name: 'Charmander'});
+   console.log(pokemonRepository.getAll());
+//pokemonRepository.add({name: 'Charmander'});
 //document.write(pokemonRepository.getAll());
 
 //assinging pokemonInfo the value of pokemonRepository
-let pokemonInfo= pokemonRepository.getAll();
+  let pokemonInfo= pokemonRepository.getAll();
 
-pokemonRepository.loadList().then(function() {
+  pokemonRepository.loadList().then(function() {
   // Now the data is loaded!
 
 //Trying to display the array
-pokemonInfo.forEach(function(pokemon){
-
+  pokemonInfo.forEach(function(pokemon){
   pokemonRepository.addListItem(pokemon);
-});
-});
+  });
 });
