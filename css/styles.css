@@ -62,11 +62,11 @@ ul {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
-  background: #fff;
+  background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(253,244,45,1) 100%);
   padding: 15px;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  text-align: center;
 }
 
 .modal-close {
@@ -83,6 +83,8 @@ ul {
 
 .modal p {
   margin-bottom: 0;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 #modal-container {
