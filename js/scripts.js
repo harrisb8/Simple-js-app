@@ -91,7 +91,7 @@ function showDetails(pokemon) {
   titleElement.innerText = pokemon.name;
 
   let contentElement = document.createElement('p');
-  contentElement.innerText = pokemon.height;
+  contentElement.innerText = "height" + pokemon.height;
 
   //attaching created elements to modal and adding modal to pokemon list
   modal.appendChild(closeButtonElement);
