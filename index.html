@@ -9,11 +9,14 @@
     <title>Simple JS App</title>
   </head>
   <body>
-    <header>
-      <h1>Gotta Catch Them All!</h1>
-    </header>
-    <h3>I choose you!</h3>
-    <ul class="pokemon-list">
+    <nav class="navbar navbar-expand-lg">
+      <ul class="header">
+        <h1>Gotta Catch Them All!</h1>
+        <li class="top-nav"><input type="text" class="form-control" id="search" placeholder="I choose you"></li>input></li>
+        <li><button type="button" class="btn btn-info">Go!</button></li>
+      </ul>
+    </nav>
+    <ul class="list-group">
       <li></li>
       <li></li>
       <li></li>
@@ -25,8 +28,31 @@
       <li></li>
       <li></li>
     </ul>
-    <div id= "modal-container"></div>
-    <div id="show-modal"></div>
+
+    <!--Modal starts here-->
+    <div class="modal fade">
+      id="pokemonModal"
+      tabindex="-1" role="dialog"
+      aria-labelledby="ModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalLabel">Pokemon</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times</span>
+            </button>
+          </div>
+            <div class="modal-body">
+
+            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!--If I want to add animation using jquery then I need to change the code below-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
