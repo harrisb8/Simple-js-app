@@ -178,7 +178,6 @@ function showDetails(pokemon) {
 
   document.getElementById("search").addEventListener("input", e => {
     const searchTerm = e.target.value;
-    console.log(searchTerm);
     let buttons = document.getElementsByClassName("pokebutton");
     for(let i=0; i < buttons.length; i++){
       if(button[i].innerText.includes(searchTerm)){
