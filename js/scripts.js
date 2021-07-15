@@ -135,9 +135,9 @@ function showDetails(pokemon) {
    imageElementFront.attr("src", pokemon.imageUrl);
    let heightElement= $("<p>" + "height : " + pokemon.height + "</p>");
    let weightElement= $("<p>" + "weight : " + pokemon.weight + "</p>");
-   let types = pokemon.types.map(pokemon => pokemon.type.name)
+   let types = pokemon.types.map(pokemon => pokemon.type.name);
    let typesElement= $("<p>" + "types : " + types.join(", ") + "</p>");
-   let abilities = pokemon.abilities.map(pokemon => pokemon.ability.name)
+   let abilities = pokemon.abilities.map(pokemon => pokemon.ability.name);
    let abilitiesElement= $("<p>" + "abilities : " + abilities.join(", ") + "</p>"); 
 
   modalTitle.append(nameElement);
@@ -176,11 +176,11 @@ function showDetails(pokemon) {
   };
  })();
 
-  document.getElementById("search").addEventListener("input", e => {
+  document.getElementById("search").addEventListener("input", e =>{
     const searchTerm = e.target.value;
     let buttons = document.getElementsByClassName("pokebutton");
     for(let i=0; i < buttons.length; i++){
-      if(button[i].innerText.includes(searchTerm)){
+      if(buttons[i].innerText.includes(searchTerm)){
         buttons[i].style.display = "inline-block";
       }else{
         buttons[i].style.display = "none";
