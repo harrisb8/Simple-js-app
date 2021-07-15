@@ -72,6 +72,7 @@ let pokemonRepository =(function() {
           item.height = details.height;
           item.types = details.types;
           item.weight = details.weight;
+          item.abilities = details.abilities;
         })
 }
 
