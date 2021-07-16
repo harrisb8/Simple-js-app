@@ -80,7 +80,7 @@ function showDetails(pokemon) {
    modalBody.empty();
 
    let nameElement =  $('<h>' + pokemon.name + '</h>');
-   let imageElementFront= $('<img class="modal-img" style="width:50%">');
+   let imageElementFront= $('<img class="modal-img">');
    imageElementFront.attr('src', pokemon.imageUrl);
    let heightElement= $('<p>' + 'height : ' + pokemon.height + '</p>');
    let weightElement= $('<p>' + 'weight : ' + pokemon.weight + '</p>');
@@ -96,6 +96,7 @@ function showDetails(pokemon) {
   modalBody.append(typesElement);
   modalBody.append(abilitiesElement);
   
+  setTimeout( () => imageElementFront.addClass('showImage'), 1000)
  }
 
   $('#pokemonModal').hide('modalContainer');
