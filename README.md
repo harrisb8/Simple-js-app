@@ -1,4 +1,4 @@
-#Writing a sample README
+# Writing a sample README
 
 Objective
     is to build a web application using HTML, CSS and Javascript that loads data from an external Api and enables the viewing of the data in detail.
